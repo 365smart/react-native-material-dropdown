@@ -27,7 +27,7 @@ export default class Dropdown extends PureComponent {
     data: [],
 
     valueExtractor: ({ value } = {}, index) => value,
-    labelExtractor: ({ label } = {}, index) => label,
+    labelExtractor: ({ label } = {}, index, selected) => label,
     propsExtractor: () => null,
 
     absoluteRTLLayout: false,
@@ -488,7 +488,7 @@ export default class Dropdown extends PureComponent {
     let title;
 
     if (~index) {
-      title = labelExtractor(data[index], index);
+      title = labelExtractor(data[index], index, -1);
     }
 
     if (null == title) {
@@ -603,7 +603,7 @@ export default class Dropdown extends PureComponent {
       };
 
     let value = valueExtractor(item, index);
-    let label = labelExtractor(item, index);
+    let label = labelExtractor(item, index, selected);
 
     let title = null == label?
       value:
@@ -628,11 +628,17 @@ export default class Dropdown extends PureComponent {
       },
     ];
 
-    return (
-      <DropdownItem index={index} {...props}>
+    let view = (typeof title === "object")
+      ? title
+      : (
         <Text style={[styles.item, itemTextStyle, textStyle]} numberOfLines={1}>
           {title}
         </Text>
+      );
+
+    return (
+      <DropdownItem index={index} {...props}>
+        {view}
       </DropdownItem>
     );
   }
