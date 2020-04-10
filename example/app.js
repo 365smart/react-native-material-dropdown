@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { AppRegistry, Text, View } from 'react-native';
-import { TextField } from 'react-native-materialui-textfield';
+import { TextInput } from 'react-native-paper';
 import { Dropdown } from 'react-native-material-dropdown';
 
 export default function init() {
@@ -48,7 +48,7 @@ export default function init() {
       return (
         <View style={styles.screen}>
           <View style={styles.container}>
-            <TextField
+            <TextInput
               ref={this.sampleRef}
               value={sample}
               onChangeText={this.onChangeText}

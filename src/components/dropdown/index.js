@@ -12,7 +12,7 @@ import {
   I18nManager,
 } from 'react-native';
 import Ripple from 'react-native-material-ripple';
-import { TextField } from 'react-native-materialui-textfield';
+import { TextInput } from 'react-native-paper';
 
 import DropdownItem from '../item';
 import styles from './styles';
@@ -503,7 +503,7 @@ export default class Dropdown extends PureComponent {
       String(title);
 
     return (
-      <TextField
+      <TextInput
         label=''
         labelHeight={dropdownOffset.top - Platform.select({ ios: 1, android: 2 })}
 
