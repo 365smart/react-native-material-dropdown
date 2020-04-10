@@ -9,7 +9,6 @@ import {
   TouchableWithoutFeedback,
   Dimensions,
   Platform,
-  ViewPropTypes,
   I18nManager,
 } from 'react-native';
 import Ripple from 'react-native-material-ripple';
@@ -133,7 +132,7 @@ export default class Dropdown extends PureComponent {
     disabledItemColor: PropTypes.string,
     baseColor: PropTypes.string,
 
-    itemTextStyle: Text.propTypes.style,
+    itemTextStyle: PropTypes.object,
 
     itemCount: PropTypes.number,
     itemPadding: PropTypes.number,
@@ -146,9 +145,9 @@ export default class Dropdown extends PureComponent {
     renderBase: PropTypes.func,
     renderAccessory: PropTypes.func,
 
-    containerStyle: (ViewPropTypes || View.propTypes).style,
-    overlayStyle: (ViewPropTypes || View.propTypes).style,
-    pickerStyle: (ViewPropTypes || View.propTypes).style,
+    containerStyle: PropTypes.object,
+    overlayStyle: PropTypes.object,
+    pickerStyle: PropTypes.object,
 
     supportedOrientations: PropTypes.arrayOf(PropTypes.string),
 
